@@ -1,0 +1,111 @@
+.recruiters-container {
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    border-radius: 50px;
+    text-align: center;
+    width: 55vw;
+    margin: 20px auto;
+    animation: liftUp 1s ease-in-out;
+    transition: transform 0.5s ease;
+}
+
+.recruiters-container:hover {
+    transform: translateY(-10px);
+}
+
+.recruiters-container,
+.headings {
+    font-size: 35px;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.headings {
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+.recruiters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.recruiter-icon {
+    background-color: #fff;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-size: 70px;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    animation: fadeZoomIn 1.5s ease-in-out;
+}
+
+.recruiter-icon:hover {
+    transform: scale(1.2);
+    background-color: #f1c40f;
+}
+
+.recruiter-icon i {
+    color: #333;
+    transition: color 0.5s ease;
+}
+
+.recruiter-icon:hover i {
+    color: #fff;
+}
+
+/* Keyframes for Icon Animation */
+@keyframes fadeZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Keyframes for Container Lift-Up on Scroll */
+@keyframes liftUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .recruiters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .recruiter-icon {
+        font-size: 50px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recruiters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recruiter-icon {
+        font-size: 40px;
+        padding: 15px;
+    }
+}

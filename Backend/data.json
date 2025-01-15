@@ -1,0 +1,41 @@
+{
+  "students": [
+    {
+      "uid": "student123",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "password": "password123"
+    },
+    {
+      "uid": "s123",
+      "firstName": "Raju",
+      "lastName": "Singh",
+      "email": "r123@gmail.com",
+      "password": "1234"
+    },
+    {
+      "uid": "m331",
+      "firstName": "Prince",
+      "lastName": "Dogra",
+      "email": "pd123@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "admins": [
+    {
+      "uid": "admin123",
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin@example.com",
+      "password": "admin123"
+    },
+    {
+      "uid": "m123",
+      "firstName": "Raj",
+      "lastName": "Sinha",
+      "email": "m123@gmail.com",
+      "password": "1234"
+    }
+  ]
+}

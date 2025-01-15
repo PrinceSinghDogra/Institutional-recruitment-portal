@@ -1,0 +1,136 @@
+.CampusLife-container {
+    background-color: #333;
+    color: #fff;
+    padding: 40px;
+    border-radius: 50px;
+    text-align: center;
+    max-width: 55vw;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.CampusLife-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.CampusLife-container,
+.headings {
+    font-size: 2.5vw;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 30px;
+}
+
+.headings {
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+.image-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slider-image {
+    width: 85%;
+    border-radius: 50px;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1);
+}
+
+.slider-image:hover {
+    transform: scale(1.05);
+}
+
+.arrow-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    color: beige;
+    cursor: pointer;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.arrow-btn:hover {
+    background-color: sienna;
+    transform: scale(1.1);
+}
+
+.arrow-btn.left {
+    left: 10px;
+}
+
+.arrow-btn.right {
+    right: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .CampusLife-container {
+        max-width: 75vw;
+        padding: 30px;
+    }
+
+    .headings {
+        font-size: 3.5vw;
+    }
+
+    .slider-image {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .CampusLife-container {
+        max-width: 90vw;
+        padding: 20px;
+    }
+
+    .headings {
+        font-size: 4.5vw;
+    }
+
+    .arrow-btn {
+        font-size: 18px;
+        height: 35px;
+        width: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .CampusLife-container {
+        max-width: 95vw;
+        padding: 15px;
+        border-radius: 30px;
+    }
+
+    .headings {
+        font-size: 6vw;
+    }
+
+    .slider-image {
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    .arrow-btn {
+        font-size: 16px;
+        height: 30px;
+        width: 30px;
+    }
+}
