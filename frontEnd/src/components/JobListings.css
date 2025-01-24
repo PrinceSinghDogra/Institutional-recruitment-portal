@@ -1,0 +1,32 @@
+.job-listings {
+    padding: 2rem;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    border-left: 5px solid #FFB74D;
+    margin: 1rem 0;
+}
+
+.job-listings-title {
+    font-size: 2rem;
+    color: #283593;
+    margin-bottom: 1rem;
+}
+
+.job-listings-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.job-listings-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #283593;
+}
+
+.job-listings-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}

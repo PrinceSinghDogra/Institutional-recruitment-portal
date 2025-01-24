@@ -35,7 +35,6 @@ const Footer = () => {
                         <i className="fab fa-threads"></i>
                     </a>
                 </div>
-
             </div>
             <div className="footer-section">
                 <h3 className="footer-header">Contact Us</h3>
@@ -46,6 +45,9 @@ const Footer = () => {
                     Phone: +91-160-5017000, +91-8067947100 (24*7 Helpline No.)<br />
                     Email: info@cumail.in <br />
                 </address>
+            </div>
+            <div className="footer-signature">
+                <p>Designed with ❤️ by <strong> Vaibhav Kumar </strong> </p>
             </div>
         </footer>
     );

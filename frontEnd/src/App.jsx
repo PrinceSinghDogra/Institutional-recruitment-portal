@@ -9,36 +9,45 @@ import Alumni from "./components/Alumni";
 import Footer from "./components/Footer";
 import RegistrationForm from "./components/RegistrationForm";
 import LoginForm from "./components/LoginForm";
+import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
+import Announcements from "./components/Announcements";
+import JobListings from "./components/JobListings";
+import Profile from "./components/Profile";
+import Applications from "./components/Applications";
+import Announcements_Admin from "./components/Announcements_Admin";
+import Companies_Admin from "./components/Companies_Admin";
+import Applications_Admin from "./components/Applications_Admin";
 import "./App.css";
 
 const App = () => {
-  const [userType, setUserType] = useState(null); // Track the logged-in user type
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check if a user is logged in from localStorage
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      setUserType(user.userType); // Set userType based on logged-in user
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
     }
   }, []);
 
   const handleLogin = (user) => {
-    // Set userType directly when logging in
-    setUserType(user.userType);
+    setUser(user);
+    localStorage.setItem("user", JSON.stringify(user));
   };
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    setUserType(null); // Clear user type on logout
+    setUser(null);
   };
 
   return (
     <Router>
-      {/* Render either NavStudent or NavAdmin based on the logged-in user */}
-      {userType === "Student" ? (
-        <NavStudent onLogout={handleLogout} />
-      ) : userType === "Admin" ? (
-        <NavAdmin onLogout={handleLogout} />
+      {user ? (
+        user.userType === "Student" ? (
+          <NavStudent onLogout={handleLogout} />
+        ) : (
+          <NavAdmin onLogout={handleLogout} />
+        )
       ) : (
         <Navbar />
       )}
@@ -71,11 +80,17 @@ const App = () => {
             </>
           }
         />
-        <Route
-          path="/login"
-          element={<LoginForm onLogin={handleLogin} />} // Pass handleLogin to LoginForm
-        />
+        <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
         <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/student/announcements" element={<Announcements />} />
+        <Route path="/student/jobListings" element={<JobListings />} />
+        <Route path="/student/applications" element={<Applications />} />
+        <Route path="/student/profile" element={<Profile user={user} />} />
+        <Route path="/admin/announcements" element={<Announcements_Admin />} />
+        <Route path="/admin/manage-companies" element={<Companies_Admin />} />
+        <Route path="/admin/applications" element={<Applications_Admin />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   );

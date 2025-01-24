@@ -7,6 +7,8 @@ const RegistrationForm = () => {
     const [lastName, setLastName] = useState("");
     const [uid, setUid] = useState("");
     const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [department, setDepartment] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [userType, setUserType] = useState("Student");
@@ -21,13 +23,15 @@ const RegistrationForm = () => {
             lastName,
             uid,
             email,
+            phoneNumber,
+            department,
             password,
             confirmPassword,
             userType,
         };
 
         try {
-            const response = await fetch("http://localhost:3000/register", {  // Make sure this points to port 3000
+            const response = await fetch("http://localhost:3000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,7 +42,7 @@ const RegistrationForm = () => {
             const data = await response.json();
             if (response.ok) {
                 setNotification(data.message);
-                navigate("/login");  // Redirect to login page after successful registration
+                navigate("/login");
             } else {
                 setNotification(data.message);
             }
@@ -88,6 +92,18 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className="form-group">
+                    <label htmlFor="phoneNumber">Phone Number:</label>
+                    <input
+                        type="text"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        required
+                    />
+                </div>
+
+                <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email"
@@ -108,10 +124,29 @@ const RegistrationForm = () => {
                         onChange={(e) => setUserType(e.target.value)}
                         required
                     >
-                        <option value="Student">Student</option>
                         <option value="Admin">Admin</option>
+                        <option value="Student">Student</option>
                     </select>
                 </div>
+
+                {userType === "Student" && (
+                    <div className="form-group">
+                        <label htmlFor="department">Department:</label>
+                        <select
+                            id="department"
+                            name="department"
+                            value={department}
+                            onChange={(e) => setDepartment(e.target.value)}
+                            required
+                        >
+                            <option value="">Select Department</option>
+                            <option value="BCA">BCA</option>
+                            <option value="MCA">MCA</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="MBA">MBA</option>
+                        </select>
+                    </div>
+                )}
 
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>

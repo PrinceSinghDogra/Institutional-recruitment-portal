@@ -38,7 +38,7 @@ const NavStudent = () => {
                 {userType === 'Student' && (
                     <>
                         <Link to="/student/announcements" className="navbar-link">Announcements</Link>
-                        <Link to="/student/Job_listings" className="navbar-link">Job Listings</Link>
+                        <Link to="/student/JobListings" className="navbar-link">Job Listings</Link>
                         <Link to="/student/applications" className="navbar-link">Applications</Link>
                         <Link to="/student/profile" className="navbar-link">Profile</Link>
                     </>

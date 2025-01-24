@@ -1,0 +1,48 @@
+.applications-admin {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.filter-input {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.applications-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.applications-table th,
+.applications-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.applications-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.applications-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.applications-table tr:hover {
+    background-color: #ddd;
+}

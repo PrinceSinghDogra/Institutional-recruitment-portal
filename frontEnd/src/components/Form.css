@@ -75,6 +75,7 @@
 }
 
 .form-submit-btn:hover {
+    color: beige;
     background: #3a74cc;
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(77, 144, 255, 0.4);
@@ -95,6 +96,21 @@ p a {
 
 p a:hover {
     color: #fff;
+}
+
+p button {
+    border: none;
+    color: black;
+    background-color: #4d92ff;
+    border-radius: 10px;
+}
+
+p button:hover {
+    color: #fff;
+}
+
+option {
+    background-color: #121212;
 }
 
 /* Background Animation */

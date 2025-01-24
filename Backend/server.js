@@ -1,17 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const cors = require('cors');  // Import CORS
+const cors = require('cors'); // Import CORS
 const app = express();
 const port = 3000;
 
-// Enable CORS for all origins
 app.use(cors());
 
-// Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Root route to avoid "Cannot GET /" error
 app.get('/', (req, res) => {
     res.send('Welcome to the CU Campus Portal API');
 });
@@ -22,10 +19,16 @@ const readData = () => {
     return JSON.parse(data);
 };
 
+// Write data to `data.json`
+const writeData = (data) => {
+    fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+};
+
 // Register route
 app.post('/register', (req, res) => {
-    const { uid, firstName, lastName, email, password, confirmPassword, userType } = req.body;
+    const { uid, firstName, lastName, email, phoneNumber, department, password, confirmPassword, userType } = req.body;
 
+    // Validate password match
     if (password !== confirmPassword) {
         return res.status(400).json({ message: "Passwords do not match" });
     }
@@ -45,10 +48,12 @@ app.post('/register', (req, res) => {
         firstName,
         lastName,
         email,
+        phoneNumber,
+        department,
         password
     });
-    fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
 
+    writeData(data);
     res.status(200).json({ message: "Registration successful" });
 });
 
